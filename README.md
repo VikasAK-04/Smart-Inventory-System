@@ -1,87 +1,86 @@
-# 🍅 Smart Tomato Inventory System using Spring Boot + ESP32 + RFID + OLED
+# 🍅 Smart Tomato Inventory System
 
-A full-stack IoT + software solution for tracking tomato crates in real-time using **ESP32**, **RFID**, and a **Spring Boot + PostgreSQL backend**, with a dynamic web dashboard powered by **JSP** and **Leaflet Maps**.
+A full-stack IoT and software solution for **real-time tracking of tomato crates** using **ESP32**, **RFID**, and **OLED**, with a backend built on **Spring Boot** and **PostgreSQL**, and a dynamic **JSP web dashboard** featuring interactive maps powered by **Leaflet.js**.
 
-This project aims to improve inventory tracking, reduce spoilage, and provide real-time data access for intermediaries, warehouses, and farmers.
-
----
-
-##  Key Features
-
--  Track individual tomato crates using RFID tags.
--  ESP32 reads RFID data and sends it to Spring Boot backend via HTTP.
--  OLED screen displays tag info in real time.
--  JSP-based web dashboard shows crate locations and freshness.
--  Identifies expired tomatoes based on date.
--  PostgreSQL database stores and manages inventory data.
--  REST APIs for data integration with other systems.
--  Clean code structure with MVC design pattern in Spring Boot.
+This project aims to improve inventory management, reduce spoilage, and provide transparent, real-time data access to intermediaries, warehouses, and farmers.
 
 ---
 
-##  Architecture Overview
+## Key Features
+
+- Track individual tomato crates using RFID tags.
+- ESP32 reads RFID data and sends it to the backend via HTTP.
+- OLED screen displays tag info in real time on the ESP32 device.
+- JSP-based web dashboard visualizes crate locations and freshness status.
+- Automatic detection of expired tomato crates based on timestamps.
+- PostgreSQL database for reliable inventory data storage and management.
+- REST APIs to facilitate integration with other systems.
+- Clean MVC architecture for maintainable Spring Boot backend.
+
+---
+
+## Architecture Overview
 
 [ESP32 + RFID Reader + OLED]
-           ↓ (WiFi HTTP POST)
-     [Spring Boot REST API]
-           ↓
-     [PostgreSQL Database]
-           ↓
-      [JSP Web Dashboard]
+↓ (WiFi HTTP POST)
+[Spring Boot REST API]
+↓
+[PostgreSQL Database]
+↓
+[JSP Web Dashboard]
 
 
 
- Technologies Used
-Layer	Tech Stack
-Frontend	JSP, HTML, CSS, Leaflet.js
-Backend	Spring Boot, REST APIs
-Database	PostgreSQL
-Microcontroller	ESP32
-Sensors	MFRC522 RFID Reader, OLED SSD1306
-Libraries (ESP32)	WiFi, HTTPClient, MFRC522, Adafruit GFX
+---
 
+## Technologies Used
 
+| Layer          | Technology Stack                              |
+|----------------|----------------------------------------------|
+| Frontend       | JSP, HTML, CSS, Leaflet.js                    |
+| Backend        | Spring Boot, REST APIs                        |
+| Database       | PostgreSQL                                   |
+| Microcontroller| ESP32                                        |
+| Sensors        | MFRC522 RFID Reader, OLED SSD1306             |
+| ESP32 Libraries| WiFi, HTTPClient, MFRC522, Adafruit GFX      |
 
-How It Works
-ESP32 scans RFID tag using MFRC522 reader.
+---
 
-OLED display shows the scanned tag ID instantly.
+## How It Works
 
-ESP32 sends the tag data to the backend REST API over WiFi.
+1. ESP32 scans an RFID tag using the MFRC522 reader.  
+2. The OLED displays the scanned tag ID instantly.  
+3. ESP32 sends the tag data to the Spring Boot backend REST API over WiFi.  
+4. The backend assigns a unique tag ID, stores the data with timestamps in PostgreSQL.  
+5. The JSP dashboard shows all crates with status, location, and expiration info in real time.
 
-Spring Boot server receives the data, assigns unique tag ID, and stores it in PostgreSQL with a timestamp.
+---
 
-Web dashboard displays all crates, their status, and expiration data.
+## REST API Endpoints
 
+| Method | Endpoint     | Description                   |
+|--------|--------------|------------------------------|
+| POST   | `/addTag`    | Receive RFID tag data from ESP32 |
+| GET    | `/expired`   | Fetch list of expired crates      |
+| GET    | `/dashboard` | Load the web dashboard (JSP)     |
 
-REST API Endpoints
-Method	 Endpoint	     Description
-POST	   /addTag	     Receive RFID tag from ESP32
-GET	     /expired	     Fetch list of expired crates
-GET	     /dashboard	   Load web dashboard (JSP)
+---
 
+## Live Dashboard Preview
 
-Live Dashboard Preview
-The dashboard displays:
+The dashboard provides:
 
-Total crates scanned
+- Total crates scanned  
+- Number of fresh crates  
+- Number of expired crates  
+- Real-time interactive map view with Leaflet.js  
 
-Crates that are still fresh
+![Dashboard Preview](https://github.com/user-attachments/assets/c508456b-4e97-4ec2-8cb2-20662924e5e4)
 
-Crates that are expired
+---
 
-Real-time map view (Leaflet)
+## Developed By
 
-
-<img width="952" alt="DashBoard " src="https://github.com/user-attachments/assets/c508456b-4e97-4ec2-8cb2-20662924e5e4" />
-
-
-Developed by 
-Vikas KA
-June 2025 
+**Vikas KA**  
+June 2025  
 IoT + Spring Boot + PostgreSQL Hackathon Project
-
-
-
-
-
