@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>StockEye: Smart Inventory System</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <h1>👁️‍🗨️ StockEye</h1>
+    <p>Smart Inventory Tracking System for Perishable Goods</p>
+
+    <div class="button-group">
+        <a href="/dashboard" class="btn">📊 View Dashboard</a>
+        <a href="/manual-entry" class="btn">➕ Add Tomato Manually</a>
+        <a href="/route-planner" class="btn">🗺️ Smart Route Planner</a>
+    </div>
+</div>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-app.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup } from "https://www.gstatic.com/firebasejs/11.8.1/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyBBDnjhaYZL1WPIBuIjIDR5b54K1z1rPd0",
+      authDomain: "hackthon-8616e.firebaseapp.com",
+      projectId: "hackthon-8616e",
+      storageBucket: "hackthon-8616e.firebasestorage.app",
+      messagingSenderId: "935376958235",
+      appId: "1:935376958235:web:9304da3cc983db5f95d9be",
+      measurementId: "G-138JNXXEEZ"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const provider = new GoogleAuthProvider();
+
+    // ✅ Attach to window for global access
+    window.signInWithGoogle = async function () {
+      try {
+        const result = await signInWithPopup(auth, provider);
+        const user = result.user;
+        alert("Welcome " + user.displayName);
+
+        // Send user to backend (optional)
+        await fetch('/saveUser', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            name: user.displayName,
+            email: user.email,
+            uid: user.uid
+          })
+        });
+      } catch (error) {
+        console.error("Login failed:", error);
+      }
+    };
+</script>
+</body>
+</html>
