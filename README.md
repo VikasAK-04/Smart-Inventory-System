@@ -1,6 +1,6 @@
 # 🍅 Smart Tomato Inventory System
 
-A full-stack IoT and software solution for **real-time tracking of tomato crates** using **ESP32**, **RFID**, and **OLED**, with a backend built on **Spring Boot** and **PostgreSQL**, and a dynamic **JSP web dashboard** featuring interactive maps powered by **Leaflet.js**.
+A full-stack IoT and software solution for **real-time tracking of tomato crates** using **ESP32**, **RFID**, and **OLED**, with a backend built on **Spring Boot** and **PostgreSQL**, and a dynamic **thymeleaf web dashboard** featuring interactive maps powered by **Leaflet.js**.
 
 This project enhances tomato inventory visibility, reduces spoilage, and empowers intermediaries who takes tomatoes from Farmer in bulk  and Transport to the different location by taking real-time data from ESP32 and RFID 
 
