@@ -2,7 +2,7 @@
 
 A full-stack IoT and software solution for **real-time tracking of tomato crates** using **ESP32**, **RFID**, and **OLED**, with a backend built on **Spring Boot** and **PostgreSQL**, and a dynamic **JSP web dashboard** featuring interactive maps powered by **Leaflet.js**.
 
-This project enhances tomato inventory visibility, reduces spoilage, and empowers intermediaries and farmers with transparent, real-time data.
+This project enhances tomato inventory visibility, reduces spoilage, and empowers intermediaries who takes tomatoes from Farmer in bulk  and Transport to the different location by taking real-time data from ESP32 and RFID 
 
 
 
@@ -74,54 +74,54 @@ This project enhances tomato inventory visibility, reduces spoilage, and empower
 
 ---
 
-### 📍 Real-Time Location Mapping with Leaflet.js
+### 📍 Real-Time values came from esp32 using RFID to DashBoard which I had created 
 ![Leaflet Map View](https://github.com/user-attachments/assets/9c50fd52-d5bd-422c-b5c3-4d0d44d09fb1)
 
 ---
 
-### 🟢 Crate Status Visuals (Fresh / Expired)
+### 🟢 Adding Manually By the user 
 ![Status View](https://github.com/user-attachments/assets/e4c2a81b-a681-47a9-99bb-8674d904fa77)
 
 ---
 
-### 🧾 Tag History & Timestamps
+### 🧾 Order taking from Client in Different Location
 ![Tag List View](https://github.com/user-attachments/assets/36feea5a-052f-4739-bf96-3e2b88ffd060)
 
 ---
 
-### 🔍 Individual Tag Tracking
+### 🔍 Monitering the Distance from Middle-Man(who supplies tomatoes to Different Location) to the client and monitering the Validity of the tomatoes and compare with the Distance of that Destination.so that the Client get the fresh Tomatoes.
 ![Single Tag Info](https://github.com/user-attachments/assets/0922d477-ce89-4b9a-815f-f2b0b77796d2)
 
 ---
 
-### 📲 Data Transmission from ESP32
+### 📲 Data Transmission from ESP32 to DataBase in Real-Time 
 ![ESP32 to API](https://github.com/user-attachments/assets/21eed83f-eb30-4aac-b2d5-983b2e2fa30d)
 
 ---
 
-## 👨‍💻 Developed By
+##  Developed By
 
 **Vikas KA**  
-📅 June 2025  
-🎯 Hackathon Project: IoT + Spring Boot + PostgreSQL
+ June 2025  
+ Hackathon Project: IoT + Spring Boot + PostgreSQL
 
 ---
 
-## 🧠 Project Impact
+## Project Impact
 
-- ✅ Reduces manual tracking and errors in tomato supply chain.
-- 🌿 Helps avoid spoilage with expiration monitoring.
-- 📦 Enables smarter logistics with crate-level visibility.
-- 👨‍🌾 Empowers intermediaries, cold storage units, and farmers alike.
+-  Reduces manual tracking and errors in tomato supply chain.
+-  Helps avoid spoilage with expiration monitoring.
+-  Enables smarter logistics with crate-level visibility.
+-  Empowers intermediaries, cold storage units, and farmers alike.
 
 ---
 
-## 🛠️ Future Enhancements
+## Future Enhancements
 
-- 🛰️ GPS module integration for geolocation tracking.
-- 📱 Android/Web app for farmer-side access.
-- 🔔 Alert notifications for expired crates.
-- 📊 Analytics dashboard with trends and reporting.
+-  GPS module integration for geolocation tracking.
+-  Android/Web app for farmer-side access.
+-  Alert notifications for expired crates.
+-  Analytics dashboard with trends and reporting.
 
 ---
 
