@@ -11,7 +11,7 @@ This project enhances tomato inventory visibility, reduces spoilage, and empower
 -  **RFID-Based Tracking** of individual tomato crates.
 -  **ESP32** reads RFID tags and sends data over WiFi to the backend.
 -  **OLED Display** shows scanned crate info instantly.
--  **JSP Web Dashboard** with Leaflet.js for real-time crate monitoring.
+-  **Web Dashboard** with thymeleaf for real-time crate monitoring.
 -  Automatic detection of **expired crates** using timestamps.
 -  Backend built using **Spring Boot** with clean MVC architecture.
 -  **PostgreSQL** for efficient and scalable data storage.
@@ -38,7 +38,7 @@ This project enhances tomato inventory visibility, reduces spoilage, and empower
 
 | Layer            | Tools & Frameworks                      |
 |------------------|------------------------------------------|
-| Frontend         | JSP, HTML, CSS, Leaflet.js               |
+| Frontend         | thymeleaf-HTML, CSS, Leaflet.js               |
 | Backend          | Spring Boot, REST APIs                   |
 | Database         | PostgreSQL                               |
 | Microcontroller  | ESP32                                    |
