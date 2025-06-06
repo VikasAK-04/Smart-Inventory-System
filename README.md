@@ -2,24 +2,24 @@
 
 A full-stack IoT and software solution for **real-time tracking of tomato crates** using **ESP32**, **RFID**, and **OLED**, with a backend built on **Spring Boot** and **PostgreSQL**, and a dynamic **JSP web dashboard** featuring interactive maps powered by **Leaflet.js**.
 
-> 🚀 This project enhances tomato inventory visibility, reduces spoilage, and empowers intermediaries and farmers with transparent, real-time data.
+This project enhances tomato inventory visibility, reduces spoilage, and empowers intermediaries and farmers with transparent, real-time data.
 
----
 
-## 📌 Key Features
 
-- ✅ **RFID-Based Tracking** of individual tomato crates.
-- 📡 **ESP32** reads RFID tags and sends data over WiFi to the backend.
-- 🖥️ **OLED Display** shows scanned crate info instantly.
-- 🗺️ **JSP Web Dashboard** with Leaflet.js for real-time crate monitoring.
-- ⏳ Automatic detection of **expired crates** using timestamps.
-- 🧠 Backend built using **Spring Boot** with clean MVC architecture.
-- 🛢️ **PostgreSQL** for efficient and scalable data storage.
-- 🔌 **REST APIs** for system integration and scalability.
+##  Key Features
 
----
+-  **RFID-Based Tracking** of individual tomato crates.
+-  **ESP32** reads RFID tags and sends data over WiFi to the backend.
+-  **OLED Display** shows scanned crate info instantly.
+-  **JSP Web Dashboard** with Leaflet.js for real-time crate monitoring.
+-  Automatic detection of **expired crates** using timestamps.
+-  Backend built using **Spring Boot** with clean MVC architecture.
+-  **PostgreSQL** for efficient and scalable data storage.
+-  **REST APIs** for system integration and scalability.
 
-## 🏗️ System Architecture
+
+
+##  System Architecture
 
 [ESP32 + MFRC522 RFID Reader + OLED Display]
 ↓ WiFi (HTTP POST)
@@ -34,7 +34,7 @@ A full-stack IoT and software solution for **real-time tracking of tomato crates
 
 ---
 
-## ⚙️ Technology Stack
+##  Technology Stack
 
 | Layer            | Tools & Frameworks                      |
 |------------------|------------------------------------------|
@@ -47,13 +47,13 @@ A full-stack IoT and software solution for **real-time tracking of tomato crates
 
 ---
 
-## 🔁 How It Works
+##  How It Works
 
-1. ✅ ESP32 scans an RFID tag using the **MFRC522 Reader**.
-2. 💡 The **OLED display** shows the tag UID immediately.
-3. 🌐 ESP32 sends the tag data to a **Spring Boot REST API** via HTTP POST.
-4. 🧾 The backend stores data with **timestamps** in PostgreSQL.
-5. 📊 The **dashboard** updates in real time, showing crate status, age, and location.
+1.  ESP32 scans an RFID tag using the **MFRC522 Reader**.
+2.  The **OLED display** shows the tag UID immediately.
+3.  ESP32 sends the tag data to a **Spring Boot REST API** via HTTP POST.
+4.  The backend stores data with **timestamps** in PostgreSQL.
+5.  The **dashboard** updates in real time, showing crate status, age, and location.
 
 ---
 
