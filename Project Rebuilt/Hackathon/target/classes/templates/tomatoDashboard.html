@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tomato Dashboard</title>
+    <link rel="stylesheet" href="/style.css" />
+    <style>
+        body {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 40px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        form {
+            margin-bottom: 30px;
+        }
+
+        input[type="text"], input[type="number"], input[type="email"], input[type="password"] {
+            padding: 10px;
+            border-radius: 8px;
+            border: none;
+            margin-right: 10px;
+            width: 200px;
+        }
+
+        input[type="submit"], button {
+            background: linear-gradient(to right, #92fe9d, #00c9ff);
+            padding: 10px 20px;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            color: #fff;
+        }
+
+        th {
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05);
+        }
+
+        #firebaseDataSection {
+            margin-top: 50px;
+        }
+    </style>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"></script>
+</head>
+<body>
+
+<h2>🍅 Tomato Inventory Dashboard</h2>
+
+<!-- Tomato Scan Form -->
+<form action="/scan" method="post">
+    <input type="text" name="tagId" placeholder="Tag ID" required />
+    <input type="number" name="freshnessDays" placeholder="Freshness Days" min="1" required />
+    <input type="submit" value="Scan Tomato" />
+</form>
+
+<!-- Tomato Table -->
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Tag ID</th>
+        <th>Date Scanned</th>
+        <th>Freshness (Days)</th>
+        <th>Days Left</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="t : ${tomatoes}">
+        <td th:text="${t.id}">1</td>
+        <td th:text="${t.tagId}">ABC123</td>
+        <td th:text="${t.dateScanned}">2025-06-06</td>
+        <td th:text="${t.freshnessDays}">5</td>
+        <td th:text="${t.daysLeft}">2</td>
+        <td>
+            <span th:if="${t.expired}" style="color: #ff4d4d;">Expired</span>
+            <span th:unless="${t.expired}" style="color: #00ff99;">Fresh</span>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+<script>
+    // Replace this config with your actual Firebase project settings
+    const firebaseConfig = {
+        apiKey: "AIzaSyBXvmtaXfOWBzU2_5yXi0LaK3ORloP35O4",
+        authDomain: "d.firebaseapp.com",
+        projectId: "your-project-id"
+    };
+
+    const app = firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+    const db = firebase.firestore();
+
+    function login() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        auth.signInWithEmailAndPassword(email, password)
+            .then(() => {
+                alert("Login successful");
+                loadInventory();
+            })
+            .catch((error) => {
+                alert("Login failed: " + error.message);
+            });
+    }
+
+    function loadInventory() {
+        db.collection("inventory").get().then((snapshot) => {
+            const list = document.getElementById("firebaseInventoryList");
+            list.innerHTML = "";
+            snapshot.forEach((doc) => {
+                const data = doc.data();
+                const li = document.createElement("li");
+                li.textContent = `${data.name || data.tagId} — ${data.weight || ""}kg — ${data.freshnessDays} days`;
+                list.appendChild(li);
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
